@@ -1,4 +1,5 @@
 # Netflix SQL Content Analysis
+
 Exploratory and temporal SQL analysis of Netflix catalog data (2008–2021) using Google BigQuery.
 
 ---
@@ -45,21 +46,29 @@ The temporal genre analysis reveals that International TV Shows began growing ea
 
 ---
 
+## Conclusion
+
+The analysis shows a clear strategic pattern in Netflix's catalog growth: the platform scaled aggressively from 2016 onward, with TV Shows and international content — especially International TV Shows — leading the expansion ahead of their Movie counterparts. Drama remained the most stable category throughout the period, suggesting it functions as a safe, consistent bet regardless of format or region.
+
+Based on these findings, a content strategy team could:
+- **Prioritize international TV Shows in new markets**, since this format showed earlier and more sustained growth than international Movies — suggesting it's a stronger entry point for global expansion.
+- **Treat Drama as a stable core genre** to anchor the catalog, while using faster-growing categories (International, Crime TV, Docuseries) to capture new audience segments.
+- **Monitor the post-2019 slowdown** in Movie additions to understand whether it reflects a deliberate shift toward TV Shows or an external constraint (production costs, licensing, etc.) — the dataset alone can't answer this, but it flags where to dig next with more recent data.
+
+---
+
 ## Project Structure
 
 ```
-netflix-sql-analysis
+netflix-sql-content-analysis
 │
 ├── queries
-│   ├── 01_exploracao_inicial.sql
-│   ├── 02_tipos_conteudo.sql
-│   ├── 03_paises_colaboracoes.sql
-│   ├── 04_analise_temporal.sql
-│   ├── 05_categorias_generos.sql
-│   └── 06_analise_temporal_categorias.sql
-│
-├── insights
-│   └── analise_final.md
+│   ├── 01_initial_exploration.sql
+│   ├── 02_content_types.sql
+│   ├── 03_countries_collaborations.sql
+│   ├── 04_temporal_analysis.sql
+│   ├── 05_categories_genres.sql
+│   └── 06_temporal_categories_analysis.sql
 │
 ├── charts
 │   ├── chart1_distribution.png
@@ -70,6 +79,17 @@ netflix-sql-analysis
 │
 └── README.md
 ```
+
+---
+
+## Queries Breakdown
+
+- **01_initial_exploration.sql** — date format validation, date conversion tests, exploratory checks on temporal data
+- **02_content_types.sql** — temporal growth analysis by content type (Movies vs TV Shows)
+- **03_countries_collaborations.sql** — titles by country, international collaborations, country participation including collaborations
+- **04_temporal_analysis.sql** — titles added by year
+- **05_categories_genres.sql** — combined categories, separated categories using SPLIT and UNNEST, ranking of categories by frequency
+- **06_temporal_categories_analysis.sql** — growth of Movie and TV Show categories over time
 
 ---
 
