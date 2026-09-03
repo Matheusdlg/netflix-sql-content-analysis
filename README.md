@@ -1,6 +1,9 @@
 # Netflix SQL Content Analysis
-
 Exploratory and temporal SQL analysis of Netflix catalog data (2008–2021) using Google BigQuery.
+
+## Business Question
+
+What does Netflix's content catalog reveal about its growth strategy — and how did the platform expand internationally over time?
 
 ---
 
@@ -53,7 +56,7 @@ The analysis shows a clear strategic pattern in Netflix's catalog growth: the pl
 Based on these findings, a content strategy team could:
 - **Prioritize international TV Shows in new markets**, since this format showed earlier and more sustained growth than international Movies — suggesting it's a stronger entry point for global expansion.
 - **Treat Drama as a stable core genre** to anchor the catalog, while using faster-growing categories (International, Crime TV, Docuseries) to capture new audience segments.
-- **Monitor the post-2019 slowdown** in Movie additions to understand whether it reflects a deliberate shift toward TV Shows or an external constraint (production costs, licensing, etc.) — the dataset alone can't answer this, but it flags where to dig next with more recent data.
+- **Monitor the post-2019 slowdown** in Movie additions to understand whether it reflects a deliberate shift toward TV Shows or an external constraint — the dataset alone can't answer this, but it flags where to dig next with more recent data.
 
 ---
 
