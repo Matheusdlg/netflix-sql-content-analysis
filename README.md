@@ -26,7 +26,7 @@ Netflix added content at a relatively slow pace until 2015. From 2016 onward, bo
 
 ![Top 10 Countries](charts/chart3_countries.png)
 
-The United States accounts for the largest share of titles by a significant margin. India and the United Kingdom follow as the second and third largest contributors. Notably, when counting countries individually from multi-country collaborations (via UNNEST), international participation is even broader than raw counts suggest.
+The United States accounts for the largest share of titles by a significant margin. India and the United Kingdom follow as the second and third largest contributors. Notably, when counting countries individually from multi-country collaborations (via UNNEST), international participation is even broader than raw counts suggest — Brazil, for example, appears around the 18th position, reflecting the catalog's long tail of contributing countries beyond the top producers.
 
 ---
 
@@ -99,9 +99,10 @@ netflix-sql-content-analysis
 - **Records:** 8,807 titles
 - **Period:** 2008–2021
 - **Tool:** Google BigQuery
+- **Data quality check:** `show_id` confirmed as a valid unique identifier (8,807 distinct IDs across 8,807 rows, no duplicates)
 
 **Known limitations:**
-- Missing values in `director`, `cast` and `country` columns
+- Missing values in `director` (~30% null), `cast` and `country` columns
 - Mixed duration formats between Movies and TV Shows
 - No viewership or popularity metrics
 - 2021 data appears incomplete
@@ -110,8 +111,8 @@ netflix-sql-content-analysis
 
 ## SQL Skills Demonstrated
 
-- CTEs and subqueries
-- Date parsing and temporal analysis with `SAFE.PARSE_DATE` and `FORMAT_DATE`
+- CTEs and subqueries, including chained CTEs to avoid repeating date-cleaning logic across queries
+- Date parsing and temporal analysis with `SAFE.PARSE_DATE` and `FORMAT_DATE` — used `SAFE.PARSE_DATE` specifically to return `NULL` on malformed dates instead of failing the whole query, after validating the date format with `REGEXP_CONTAINS`
 - String manipulation with `SPLIT`, `TRIM` and `UNNEST` for multi-value columns
 - `GROUP BY`, `HAVING` and aggregation functions
 - Data cleaning and null value investigation
